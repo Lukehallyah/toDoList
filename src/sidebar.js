@@ -3,6 +3,10 @@
 
 let main = document.querySelector('main');
 let sidebar = document.createElement('div');
+
+// Everything is tied to this variable. If it is exported, then all of the code associated 
+// with it is exported also. GOOD TO KNOW. Do not need to export every single ounce of code.
+
     if(sidebar){
         sidebar.classList.add('sidebar');
 
@@ -26,7 +30,7 @@ let sidebar = document.createElement('div');
     // so important
 
     let username = new createSidebarElements('Username');
-    let priority = new createSidebarElements('Priority');
+    let category = new createSidebarElements('Category');
     let finished = new createSidebarElements('Finished');
     let sortByDate = new createSidebarElements('Sort');
 
