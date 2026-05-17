@@ -67,7 +67,7 @@ body{
 }
 
 main{
-  /* border: 2px solid black; */
+  position: relative;
   background-color: white;
   height: 100dvh;
     /* use dvh instead of vh, because it allows for mobile ui elements */
@@ -104,3 +104,66 @@ main{
   background-color: blue;
 }
 
+.toDoTitle{
+  background-color: rgb(246, 251, 223);
+  border: 2px solid black;
+  width: 100%;
+  height: 15%;
+}
+
+.addButton{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 10%;
+  background-color: rgb(62, 205, 62);
+}
+
+.plusIcon{
+  background-image: url('./images/plus-box-outline.svg');
+  background-size: auto;
+  background-repeat: no-repeat;
+  width: 25%;
+  height: 75%;
+}
+
+.addText{
+  display: flex;
+  align-items: center;
+  width: 50%;
+  height: 100%;
+}
+
+.popUp{
+  border: 5px solid rgb(37, 37, 37);
+  position: absolute;
+  left: 35%;
+  top: 20%;
+  background-color: rgb(247, 227, 202);
+  height: 75vh;
+  width: 40vw;
+  z-index: 99;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.buttonHolder{
+  width: 100%;
+  height: 10%;
+  display: flex;
+  justify-content: right;
+}
+
+.removeButton{
+  background-image: url("./images/alpha-x-box-outline.svg");
+  width: 50px;
+  height: 50px;
+
+}
+
+.title{
+  font-size: 2rem;
+}

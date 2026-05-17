@@ -19,7 +19,16 @@ let uiStructure = ()=>{
             
         }
 
-    
+    let toDoTitle = document.createElement('h1');
+        if(toDoTitle){
+            toDoTitle.classList.add('toDoTitle');
+            toDoTitle.textContent='ToDoList';
+            toDoHolder.appendChild(toDoTitle);
+
+        }
+
+
+
 
 
 
