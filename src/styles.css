@@ -142,7 +142,7 @@ main{
   top: 20%;
   background-color: rgb(247, 227, 202);
   height: 75vh;
-  width: 40vw;
+  width: 30vw;
   z-index: 99;
 
   display: flex;
