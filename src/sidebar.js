@@ -30,7 +30,7 @@ let sidebar = document.createElement('div');
     // so important (Appending and adding classes within a constructor).
 
     let username = new createSidebarElements('Username');
-    let category = new createSidebarElements('Priority');
+    let category = new createSidebarElements('Category');
     let finished = new createSidebarElements('Finished');
     let sortByDate = new createSidebarElements('Sort');
 

@@ -1,4 +1,17 @@
+import{ToDos} from './toDoClass.js';
+const all = [];
+const todayCategory =[];
+const weekCategory=[];
+const monthCategory =[];
+const yearCategory=[];
+
+
+
+
 let addPopUp = ()=>{
+
+
+
 
     let main = document.querySelector('main');
     let popUp = document.createElement('div');
@@ -87,7 +100,7 @@ let addPopUp = ()=>{
         const selectLabel= document.createElement('label');
             if(selectLabel){
                 selectLabel.id=selectId;
-                selectLabel.textContent='Priority : ';
+                selectLabel.textContent='Category : ';
             }
         const selectDropdown = document.createElement('select');
             if(selectDropdown){
@@ -107,24 +120,28 @@ let addPopUp = ()=>{
         const today = document.createElement('option');
             if(today){
                 today.textContent='Today';
+                today.value='today';
                 selectDropdown.appendChild(today);
             }
 
         const thisWeek = document.createElement('option');
             if(thisWeek){
                 thisWeek.textContent='This Week';
+                thisWeek.value='thisWeek'
                 selectDropdown.appendChild(thisWeek);
             }
 
         const thisMonth = document.createElement('option');
             if(thisMonth){
                 thisMonth.textContent='This Month';
+                thisMonth.value='thisMonth';
                 selectDropdown.appendChild(thisMonth);
             }
 
         const thisYear = document.createElement('option');
             if(thisYear){
                 thisYear.textContent='This Year';
+                thisYear.value='thisYear';
                 selectDropdown.appendChild(thisYear);
             }
 
@@ -138,7 +155,6 @@ let addPopUp = ()=>{
             if(selectBox){
                 selectBox.style.width='100%';
                 selectBox.style.height='auto';
-                selectBox.style.border='2px solid blue';
                 selectBox.style.display='flex';
                 selectBox.style.flexDirection='column';
                 selectBox.style.alignItems='center';
@@ -170,6 +186,21 @@ let addPopUp = ()=>{
 
 
 
+
+
+    const taskDescBox = document.createElement('div');
+        if(taskDescBox){
+            taskDescBox.style.height='70%';
+            taskDescBox.style.width='100%';
+            taskDescBox.style.display='flex';
+            taskDescBox.style.flexDirection='column';
+            taskDescBox.style.alignItems='center';
+            taskDescBox.appendChild(labelTaskDesc);
+            taskDescBox.appendChild(inputTaskDesc);
+            taskDescBox.style.margin='0';
+            toDoForm.appendChild(taskDescBox);
+        }
+
     const submitButton = document.createElement('button');
         if(submitButton){
             submitButton.style.width='25%';
@@ -178,27 +209,39 @@ let addPopUp = ()=>{
             submitButton.style.display='flex';
             submitButton.style.justifyContent='center';
             toDoForm.appendChild(submitButton);
-        }
 
-    const taskDescBox = document.createElement('div');
-        if(taskDescBox){
-            taskDescBox.style.height='70%';
-            taskDescBox.style.width='100%';
-            // taskDescBox.style.border='2px solid green';
-            taskDescBox.style.display='flex';
-            taskDescBox.style.flexDirection='column';
-            taskDescBox.style.alignItems='center';
-            taskDescBox.appendChild(labelTaskDesc);
-            taskDescBox.appendChild(inputTaskDesc);
-            taskDescBox.style.margin='0';
-            taskDescBox.appendChild(submitButton);
-            toDoForm.appendChild(taskDescBox);
+            
         }
 
 
+        submitButton.addEventListener('click', (e)=>{
+            e.preventDefault();
+            let titleValue = titleInput.value;
+            let categoryValue = selectDropdown.value;
+            let descriptionValue=inputTaskDesc.value;
 
+            const newObject = new ToDos(titleValue,categoryValue,descriptionValue);
+            all.push(newObject);
+                if(categoryValue==='today'){
+                    todayCategory.push(newObject);
+                }
+                else if(categoryValue==='thisWeek'){
+                    weekCategory.push(newObject);
+                }
+                else if(categoryValue==='thisMonth'){
+                    monthCategory.push(newObject);
+                }
+                else if(categoryValue==='thisYear'){
+                    yearCategory.push(newObject);
+                }
+            console.log(all);
+            console.log(todayCategory);
+            console.log(weekCategory);
+            console.log(monthCategory);
+            console.log(yearCategory);
+        })
 
 }
 
 
-export{addPopUp}
+export{addPopUp, all, todayCategory, weekCategory, monthCategory, yearCategory};
