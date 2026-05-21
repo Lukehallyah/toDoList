@@ -168,3 +168,12 @@ main{
   font-size: 2rem;
   height: 15%;
 }
+
+.sort{
+  width: 15vw;
+}
+
+.sortBox{
+  width: 100%;
+  border: 2px solid black;
+}

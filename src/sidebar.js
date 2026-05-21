@@ -32,7 +32,6 @@ let sidebar = document.createElement('div');
     let username = new createSidebarElements('Username');
     let category = new createSidebarElements('Category');
     let finished = new createSidebarElements('Finished');
-    let sortByDate = new createSidebarElements('Sort');
 
     
     
