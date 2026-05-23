@@ -1,5 +1,5 @@
 import{sidebar} from "./sidebar.js";
-
+import{all, todayCategory, weekCategory, monthCategory, yearCategory} from './entryPopUp.js';
 
 let uiStructure = ()=>{
 
@@ -89,9 +89,6 @@ let uiStructure = ()=>{
             sortButton.classList.add('sortButton');
         }
 
-        sortButton.addEventListener('click', ()=>{
-            
-        })
 
     let sortBox = document.createElement('div');
         if(sortBox){
@@ -103,8 +100,81 @@ let uiStructure = ()=>{
             
         }  
 
+    
+
+    let cardHolder= document.createElement('div');
+        if(cardHolder){
+            cardHolder.classList.add('cardHolder');
+            toDoHolder.appendChild(cardHolder);
+        }
 
 
+    function createCard(obj){
+        console.log("Jenelyn has amazing eyes", obj);
+
+        let removeObj= document.createElement('div');
+            if(removeObj){
+                removeObj.classList.add('removeObjButton');
+                removeObj.textContent='X';
+            };
+
+            removeObj.addEventListener('click', (obj)=>{
+                cardHolder.removeChild(card);
+            })
+
+
+        let card = document.createElement('div');
+            if(card){
+                card.classList.add('card');
+                card.appendChild(removeObj);
+            }
+
+        let cardTitle = document.createElement('p');
+            if(cardTitle){
+                cardTitle.classList.add('cardTitle');
+                cardTitle.textContent=obj.title;
+                card.appendChild(cardTitle);
+            }
+        let cardDesc = document.createElement('p');
+            if(cardDesc){
+                cardDesc.classList.add("cardDesc");
+                cardDesc.textContent=obj.description;
+                card.appendChild(cardDesc);
+                
+            }
+        cardHolder.appendChild(card);
+    }
+
+        sortButton.addEventListener('click', ()=>{
+            cardHolder.textContent='';
+            if(sort.value==='all'){
+                for(const obj of all){
+                    createCard(obj);
+
+                }
+            }
+            else if(sort.value==='today'){
+                for(const obj of todayCategory){
+                    createCard(obj);
+                }
+                
+            }
+            else if(sort.value==='week'){
+                for(const obj of weekCategory){
+                    createCard(obj);
+                }
+            }
+            else if(sort.value==='month'){
+                for(const obj of monthCategory){
+                    createCard(obj);
+                }
+            }
+            else if(sort.value==='year'){
+                for(const obj of yearCategory){
+                    createCard(obj);
+                }
+            }
+        })
 
 }
 

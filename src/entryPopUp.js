@@ -85,7 +85,6 @@ let addPopUp = ()=>{
         if(titleBoxHolder){
             titleBoxHolder.style.width='100%';
             titleBoxHolder.style.height='20%';
-            // titleBoxHolder.style.border='2px solid blue';
             titleBoxHolder.style.display='flex';
             titleBoxHolder.style.flexDirection='column';
             titleBoxHolder.style.alignItems='center';
@@ -234,11 +233,9 @@ let addPopUp = ()=>{
                 else if(categoryValue==='thisYear'){
                     yearCategory.push(newObject);
                 }
-            console.log(all);
-            console.log(todayCategory);
-            console.log(weekCategory);
-            console.log(monthCategory);
-            console.log(yearCategory);
+            
+
+            main.removeChild(popUp);
         })
 
 }
