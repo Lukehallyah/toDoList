@@ -53,8 +53,8 @@ let addPopUp = ()=>{
     const toDoForm = document.createElement('form');
         if(toDoForm){
             toDoForm.style.width='100%';
-            toDoForm.style.height='75%';
-            // toDoForm.style.border='2px solid black';
+            toDoForm.style.height='90%';
+            toDoForm.style.borderTop='5px solid grey';
             toDoForm.style.display='flex';
             toDoForm.style.flexDirection='column';
             toDoForm.style.alignItems='center';
@@ -84,7 +84,7 @@ let addPopUp = ()=>{
     const titleBoxHolder= document.createElement('div');
         if(titleBoxHolder){
             titleBoxHolder.style.width='100%';
-            titleBoxHolder.style.height='20%';
+            titleBoxHolder.style.height='15%';
             titleBoxHolder.style.display='flex';
             titleBoxHolder.style.flexDirection='column';
             titleBoxHolder.style.alignItems='center';
@@ -95,15 +95,10 @@ let addPopUp = ()=>{
         }
 
 
-        const selectId='selectId';
-        const selectLabel= document.createElement('label');
-            if(selectLabel){
-                selectLabel.id=selectId;
-                selectLabel.textContent='Category : ';
-            }
+        // const selectId='selectId';
         const selectDropdown = document.createElement('select');
             if(selectDropdown){
-                selectDropdown.id=selectId;
+                // selectDropdown.id=selectId;
                 selectDropdown.style.width='70%';
                 selectDropdown.placeholder='Select Category';
             }
@@ -111,7 +106,11 @@ let addPopUp = ()=>{
 
         const empty = document.createElement('option');
             if(empty){
-                empty.textContent='';
+                empty.textContent='Choose a category . . .';
+                empty.value = '';
+                // empty.disabled=true;
+                empty.selected=true;
+                // empty.hidden=true;
                 selectDropdown.appendChild(empty);
             }
 
@@ -145,19 +144,14 @@ let addPopUp = ()=>{
             }
 
 
-
-
-
-
-
         const selectBox= document.createElement('div');
             if(selectBox){
                 selectBox.style.width='100%';
-                selectBox.style.height='auto';
+                selectBox.style.height='5%';
                 selectBox.style.display='flex';
                 selectBox.style.flexDirection='column';
                 selectBox.style.alignItems='center';
-                selectBox.appendChild(selectLabel);
+                // selectBox.appendChild(selectLabel);
                 selectBox.appendChild(selectDropdown);
                 toDoForm.appendChild(selectBox);
             }
@@ -180,7 +174,7 @@ let addPopUp = ()=>{
             inputTaskDesc.id=taskId;
             inputTaskDesc.style.height='60%';
             inputTaskDesc.style.width='80%';
-            inputTaskDesc.placeholder='Describe your task here'
+            inputTaskDesc.placeholder='Describe your task here';
         }
 
 
@@ -189,7 +183,7 @@ let addPopUp = ()=>{
 
     const taskDescBox = document.createElement('div');
         if(taskDescBox){
-            taskDescBox.style.height='70%';
+            taskDescBox.style.height='auto';
             taskDescBox.style.width='100%';
             taskDescBox.style.display='flex';
             taskDescBox.style.flexDirection='column';
@@ -198,6 +192,34 @@ let addPopUp = ()=>{
             taskDescBox.appendChild(inputTaskDesc);
             taskDescBox.style.margin='0';
             toDoForm.appendChild(taskDescBox);
+        }
+
+
+    const notesID = 'notesID';
+    const labelNotes = document.createElement('label');
+        if(labelNotes){
+            labelNotes.htmlFor=notesID;
+            labelNotes.textContent='Notes : ';
+            labelNotes.style.textAlign='center';
+            labelNotes.style.height='15%';
+        }        
+    const notesInput = document.createElement('textarea');
+        if(notesInput){
+            notesInput.id = notesID;
+            notesInput.style.width='80%';
+            notesInput.style.height='85%';
+            notesInput.placeholder='Write any goals, thoughts, ideas, and things you may not want to forget here...';
+        }
+    const notesBox = document.createElement('div');
+        if(notesBox){
+            notesBox.style.height='45%';
+            notesBox.style.width='100%';
+            notesBox.style.display='flex';
+            notesBox.style.flexDirection='column';
+            notesBox.style.alignItems='center';
+            notesBox.appendChild(labelNotes);
+            notesBox.appendChild(notesInput);
+            toDoForm.appendChild(notesBox);
         }
 
     const submitButton = document.createElement('button');
@@ -218,8 +240,9 @@ let addPopUp = ()=>{
             let titleValue = titleInput.value;
             let categoryValue = selectDropdown.value;
             let descriptionValue=inputTaskDesc.value;
+            let notesValue = notesInput.value;
 
-            const newObject = new ToDos(titleValue,categoryValue,descriptionValue);
+            const newObject = new ToDos(titleValue,categoryValue,descriptionValue, notesValue);
             all.push(newObject);
                 if(categoryValue==='today'){
                     todayCategory.push(newObject);

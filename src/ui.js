@@ -185,6 +185,7 @@ let removedToDo = [];
                 cardTitle.classList.add('cardTitle');
                 cardTitle.textContent=obj.title;
                 cardTitle.style.fontSize='1.5rem';
+                cardTitle.style.fontWeight='700';
                 cardTitle.style.textAlign='center';
                 card.appendChild(cardTitle);
             }
@@ -196,6 +197,13 @@ let removedToDo = [];
                 cardDesc.style.width='100%';
                 card.appendChild(cardDesc);
                 
+            }
+        let cardNotes = document.createElement('p');
+            if(cardNotes){
+                cardNotes.textContent=obj.notes;
+                cardNotes.style.width='100%';
+                cardNotes.textAlign='center';
+                card.appendChild(cardNotes);
             }
         cardHolder.appendChild(card);
     }
