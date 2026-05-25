@@ -118,28 +118,28 @@ let addPopUp = ()=>{
 
         const today = document.createElement('option');
             if(today){
-                today.textContent='Today';
+                today.textContent='Daily Goals';
                 today.value='today';
                 selectDropdown.appendChild(today);
             }
 
         const thisWeek = document.createElement('option');
             if(thisWeek){
-                thisWeek.textContent='This Week';
+                thisWeek.textContent='Weekly Goals';
                 thisWeek.value='thisWeek'
                 selectDropdown.appendChild(thisWeek);
             }
 
         const thisMonth = document.createElement('option');
             if(thisMonth){
-                thisMonth.textContent='This Month';
+                thisMonth.textContent='Monthly Goals';
                 thisMonth.value='thisMonth';
                 selectDropdown.appendChild(thisMonth);
             }
 
         const thisYear = document.createElement('option');
             if(thisYear){
-                thisYear.textContent='This Year';
+                thisYear.textContent='Yearly Goals';
                 thisYear.value='thisYear';
                 selectDropdown.appendChild(thisYear);
             }

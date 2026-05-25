@@ -1,8 +1,11 @@
 import{sidebar} from "./sidebar.js";
 import{all, todayCategory, weekCategory, monthCategory, yearCategory} from './entryPopUp.js';
+import { ToDos } from "./toDoClass.js";
+
 
 let uiStructure = ()=>{
 
+let removedToDo = [];
 
 
     let body = document.querySelector('body');
@@ -67,19 +70,19 @@ let uiStructure = ()=>{
     let sortWeek = document.createElement('option');
         if(sortWeek){
             sortWeek.value='week';
-            sortWeek.textContent='This Week';
+            sortWeek.textContent='Weekly Goals';
             sort.appendChild(sortWeek);
         }
     let sortMonth = document.createElement('option');
         if(sortMonth){
             sortMonth.value='month';
-            sortMonth.textContent='This Month';
+            sortMonth.textContent='Monthly Goals';
             sort.appendChild(sortMonth);
         }
     let sortYear = document.createElement('option');
         if(sortYear){
             sortYear.value='year';
-            sortYear.textContent='This Year';
+            sortYear.textContent='Yearly Goals';
             sort.appendChild(sortYear);
         }
 
@@ -110,35 +113,87 @@ let uiStructure = ()=>{
 
 
     function createCard(obj){
-        console.log("Jenelyn has amazing eyes", obj);
+        console.log(obj);
+
+        
 
         let removeObj= document.createElement('div');
             if(removeObj){
-                removeObj.classList.add('removeObjButton');
+                removeObj.style.display='flex';
+                removeObj.style.justifyContent='center';
+                removeObj.style.width='8%';
                 removeObj.textContent='X';
+                removeObj.style.border='2px solid black';
             };
 
-            removeObj.addEventListener('click', (obj)=>{
+        let buttonHolder= document.createElement('div');
+            if(buttonHolder){
+                buttonHolder.style.height='6%';
+                buttonHolder.style.width='100%';
+                buttonHolder.style.display='flex';
+                buttonHolder.style.justifyContent='right';
+                buttonHolder.appendChild(removeObj);
+
+            }
+
+            buttonHolder.addEventListener('click', ()=>{
                 cardHolder.removeChild(card);
+                let index = all.findIndex(item=>item.id===obj.id);
+                let index2 = todayCategory.findIndex(item=>item.id===obj.id);
+                let index3 = weekCategory.findIndex(item=>item.id===obj.id);
+                let index4 = monthCategory.findIndex(item=>item.id===obj.id);
+                let index5 = yearCategory.findIndex(item=>item.id===obj.id);
+
+                let wasDeleted = false;
+                if(index!==-1){
+                    all.splice(index,1);
+                    console.log('This Item has been removed');
+                    wasDeleted=true;
+                }
+                if(index2!==-1){
+                    todayCategory.splice(index2,1);
+                    wasDeleted=true;
+                }
+                if(index3!==-1){
+                    weekCategory.splice(index3,1);
+                    wasDeleted=true;
+                }
+                if(index4!==-1){
+                    monthCategory.splice(index4,1);
+                    wasDeleted=true;
+                }    
+                if(index5!==-1){
+                    yearCategory.splice(index5,1);
+                    wasDeleted=true;
+                }           
+                if(wasDeleted){
+                    removedToDo.push(obj);
+                }                                 
+                console.log(JSON.parse(JSON.stringify(removedToDo)));
+                
             })
 
 
         let card = document.createElement('div');
             if(card){
                 card.classList.add('card');
-                card.appendChild(removeObj);
+                card.appendChild(buttonHolder);
             }
 
         let cardTitle = document.createElement('p');
             if(cardTitle){
                 cardTitle.classList.add('cardTitle');
                 cardTitle.textContent=obj.title;
+                cardTitle.style.fontSize='1.5rem';
+                cardTitle.style.textAlign='center';
                 card.appendChild(cardTitle);
             }
         let cardDesc = document.createElement('p');
             if(cardDesc){
                 cardDesc.classList.add("cardDesc");
                 cardDesc.textContent=obj.description;
+                cardDesc.style.textAlign='center';
+                cardDesc.style.width='100%';
                 card.appendChild(cardDesc);
                 
             }
