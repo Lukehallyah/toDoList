@@ -1,6 +1,7 @@
 import "./styles.css";
 import {ui} from './ui.js';
 import { sideBarUi } from "./sidebar.js";
+import { titleBoxUi } from "./titleBox.js";
 // import "./us.js";
 
 
@@ -14,3 +15,4 @@ let main = document.querySelector('main');
         main.classList.add('main');
     }
 console.log(sideBarUi());
+console.log(titleBoxUi());

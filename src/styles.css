@@ -82,6 +82,15 @@ main{
     height: 100%;
     width: 20%;
     border: 2px solid black;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.profile, .priorityChange, .projectListButton{
+    width: 100%;
+    height: 10%;
+    border: 2px solid black;
 }
 
 .contentBox{
@@ -91,13 +100,34 @@ main{
 }
 
 .titleBox{
-    height: 10%;
+    height: 15%;
     width: 100%;
     border: 2px solid black;
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+}
+
+.projectTitle{
+    height: 100%;
+    display: flex;
+    align-items: end;
+    font-size: 2rem;
+    background-color: white;
+}
+
+.addButton{
+    height: 80%;
+    width: 5vw;
+    font-size: 3rem;
+    background-color: lightgreen;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .taskHoldingBox{
-    height: 90%;
+    height: 85%;
     width: 100%;
     border: 2px solid red;
 }
