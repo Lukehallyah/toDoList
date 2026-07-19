@@ -156,3 +156,40 @@ main{
 .projectTitle{
   text-align: center;
 }
+
+.buttonHold{
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  height: 2rem;
+  width: 100%;
+}
+
+.addToDo{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: green;
+  color: white;
+  width: 2rem;
+  height: 2rem;
+  font-size: 1.75rem;
+  font-weight: 900;
+}
+
+.toDoDiv{
+    height: 75vh;
+    width: 60vh;
+    position: absolute;
+    top: 10%;
+    right: 35%;
+    border: 2px solid blue;
+    background-color: lightblue;
+  }
+
+  .newToDoForm{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
