@@ -1,4 +1,3 @@
-export {ui};
 
 let ui = ()=>{
     let main = document.querySelector('main');
@@ -16,12 +15,6 @@ let ui = ()=>{
             main.appendChild(contentBox);
         }
 
-    let titleBox = document.createElement('div');
-        if(titleBox){
-            titleBox.classList.add('titleBox');
-            contentBox.appendChild(titleBox);
-        }
-
     let taskHoldingBox = document.createElement('div');
         if(taskHoldingBox){
             taskHoldingBox.classList.add('taskHoldingBox');
@@ -31,4 +24,7 @@ let ui = ()=>{
 
 
 }
+
+export {ui};
+
 

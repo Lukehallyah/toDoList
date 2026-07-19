@@ -1,5 +1,5 @@
 export {sideBarUi};
-
+import { addProject } from "./addToDo.js";
 
 let sideBarUi =()=>{
     let sidebar = document.querySelector('.sidebar')
@@ -20,11 +20,23 @@ let sideBarUi =()=>{
             projectListButton.classList.add('projectListButton');
             projectListButton.textContent='Use this to change project view';
         }
+
+    let addProjectButton = document.createElement('div');
+        if(addProjectButton){
+            addProjectButton.classList.add('addProjectButton');
+            addProjectButton.textContent='Add Project';
+
+        }
+
     if(sidebar){
         sidebar.appendChild(profile);
         sidebar.appendChild(priorityChange);
         sidebar.appendChild(projectListButton);
+        sidebar.appendChild(addProjectButton);
+        
     }
+    console.log(addProject());
+
 
 
 }
