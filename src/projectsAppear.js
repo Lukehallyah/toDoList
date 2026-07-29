@@ -1,4 +1,5 @@
-import { generalProjectArray } from "./addToDo.js"
+import { generalProjectArray } from "./addToDo.js";
+import { AddToDoTask } from "./addToDoTask.js";
 
 // THE GOAL: 
 // to take this array
@@ -53,6 +54,8 @@ let makeProjectsAppear = ()=>{
                         let newToDoQuestion = document.createElement('h3');
                             newToDoQuestion.textContent="Create a Task for this Project";
                             newToDoQuestion.style.textAlign='center';
+                            newToDoQuestion.style.marginBottom='3rem';
+                            newToDoQuestion.style.marginTop = '2rem';
                             newToDoForm.appendChild(newToDoQuestion);
 
                         // SO THE NEXT THING THAT NEEDS TO HAPPEN IS: 
@@ -65,6 +68,7 @@ let makeProjectsAppear = ()=>{
                         let toDoTitle = document.createElement('input');
                                 toDoTitle.classList.add('toDoTitle');
                                 toDoTitle.id='toDoTitle';
+                                toDoTitle.style.width='50%';
 
                         let toDoTitleLabel = document.createElement('label');
                                 toDoTitleLabel.htmlFor='toDoTitle';
@@ -77,6 +81,8 @@ let makeProjectsAppear = ()=>{
                                 toDoTitleBox.style.display='flex';
                                 toDoTitleBox.style.justifyContent='flex-end';
                                 toDoTitleBox.style.alignItems='center';
+                                toDoTitleBox.style.marginRight='4rem';
+                                toDoTitleBox.style.marginBottom='0.5rem';
                                 toDoTitleBox.appendChild(toDoTitleLabel);
                                 toDoTitleBox.appendChild(toDoTitle);
                                 newToDoForm.appendChild(toDoTitleBox);
@@ -86,10 +92,11 @@ let makeProjectsAppear = ()=>{
                         let toDoDesc = document.createElement('input');
                                 toDoDesc.classList.add('toDoDesc');
                                 toDoDesc.id='toDoDesc';
+                                toDoDesc.style.width='50%';
 
                         let toDoDescLabel = document.createElement('label');
                                 toDoDescLabel.htmlFor='toDoDesc';
-                                toDoDescLabel.textContent='Enter Task Description : '
+                                toDoDescLabel.textContent='Task Description : '
 
 
                         let toDoDescBox = document.createElement('div');
@@ -98,9 +105,48 @@ let makeProjectsAppear = ()=>{
                                 toDoDescBox.style.display='flex';
                                 toDoDescBox.style.justifyContent='flex-end';
                                 toDoDescBox.style.alignItems='center';
+                                toDoDescBox.style.marginRight='4rem';
+                                toDoDescBox.style.marginBottom='0.5rem';
                                 toDoDescBox.appendChild(toDoDescLabel);
                                 toDoDescBox.appendChild(toDoDesc);
-                                newToDoForm.appendChild(toDoDescBox);      
+                                newToDoForm.appendChild(toDoDescBox);   
+                                
+                        let toDoPriority = document.createElement('select');
+                                toDoPriority.id = 'toDoPriority';
+                                toDoPriority.style.width='50%';
+
+                        let emptyPriority = document.createElement('option');
+                                emptyPriority.textContent='';
+                                toDoPriority.appendChild(emptyPriority);
+
+                        let priorityLow = document.createElement('option');
+                                priorityLow.textContent="Low";
+                                toDoPriority.appendChild(priorityLow);
+
+                        let priorityMedium = document.createElement('option');
+                                priorityMedium.textContent='Medium';
+                                toDoPriority.appendChild(priorityMedium);
+
+                        let priorityHigh = document.createElement('option');
+                                priorityHigh.textContent='High';
+                                toDoPriority.appendChild(priorityHigh);
+
+                        let toDoPriorityLabel = document.createElement('label');
+                            toDoPriorityLabel.htmlFor='toDoPriority';
+                            toDoPriorityLabel.textContent='Select Priority : '
+
+                        let priorityHoldBox = document.createElement('div');
+                                priorityHoldBox.style.width='100%';
+                                priorityHoldBox.style.height='auto';
+                                priorityHoldBox.style.display='flex';
+                                priorityHoldBox.style.justifyContent='flex-end';
+                                priorityHoldBox.style.alignItems='center'; 
+                                priorityHoldBox.style.marginRight='4rem';
+                                priorityHoldBox.style.marginBottom='0.5rem';
+                                priorityHoldBox.appendChild(toDoPriorityLabel);
+                                priorityHoldBox.appendChild(toDoPriority);
+                                newToDoForm.appendChild(priorityHoldBox);   
+                                
                                 
                                 
                         let toDoSubmit = document.createElement('button');
@@ -108,8 +154,10 @@ let makeProjectsAppear = ()=>{
                                 toDoSubmit.textContent='Submit';
 
                             toDoSubmit.addEventListener('click', (e)=>{
-                                e.preventDefault();
-                                main.style.backgroundColor='blue';
+                                            e.preventDefault();
+                                            let thisTask = new AddToDoTask(toDoTitle.value, toDoDesc.value, "today", toDoPriority.value)
+                                            project.toDos.push(thisTask);
+
                             })
 
                         let holdSubmit = document.createElement('div');

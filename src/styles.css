@@ -178,7 +178,7 @@ main{
 }
 
 .toDoDiv{
-    height: 75vh;
+    height: 45vh;
     width: 60vh;
     position: absolute;
     top: 10%;
@@ -190,6 +190,6 @@ main{
   .newToDoForm{
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
   }
