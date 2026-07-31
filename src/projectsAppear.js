@@ -157,6 +157,42 @@ let makeProjectsAppear = ()=>{
                                             e.preventDefault();
                                             let thisTask = new AddToDoTask(toDoTitle.value, toDoDesc.value, "today", toDoPriority.value)
                                             project.toDos.push(thisTask);
+                                            main.removeChild(toDoDiv);
+
+
+                                        // So what needs to happen is that I'm going to create these boxes that go
+                                        //         into the projects. In the boxes You'll find the title, the desc,
+                                        //         the priority, and the duedate. all of this will be placed in these
+                                        //         little boxes. There should also be a 'check' box to change the color
+                                        //         of this task so that it's clear that it's been finished.
+                                            
+                                        console.log(project.toDos);
+                                        let taskHolderDiv = document.createElement('div');
+                                                taskHolderDiv.style.width='100%';
+                                                taskHolderDiv.style.height='20%';
+                                                taskHolderDiv.style.backgroundColor='lightBlue';
+                                                projectDiv.appendChild(taskHolderDiv);
+                                        
+
+                                        project.toDos.forEach(element => {
+                                                taskHolderDiv.textContent='';
+                                                let taskDiv = document.createElement('div');
+                                                let taskTitle = document.createElement('div');
+                                                        taskTitle.textContent=element.title;
+                                                let taskDesc = document.createElement('div');
+                                                        taskDesc.textContent=element.description;
+                                                let taskDueDate =document.createElement('div');
+                                                        taskDueDate.textContent=element.dueDate;
+                                                let taskPriority= document.createElement('div');
+                                                        taskPriority.textContent=element.priority;
+                                                taskDiv.appendChild(taskTitle);
+                                                taskDiv.appendChild(taskDesc);
+                                                taskDiv.appendChild(taskDueDate);
+                                                taskDiv.appendChild(taskPriority);
+                                                taskHolderDiv.appendChild(taskDiv);
+
+                                        });
+
 
                             })
 
