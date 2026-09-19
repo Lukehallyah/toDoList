@@ -1,4 +1,10 @@
-from clear.py import clear
+from clear import clear
+from createTodo import createToDo
+
+# NOTe: omit the .py from "clear.py" and from "createToDo.py", python only needs the name file. 
+#     otherwise I'm asking it to look up "py.py" within a folder name "clear" and same thing for 
+#     a folder named "createToDo"
+
 import time
 
 import subprocess
@@ -32,6 +38,7 @@ questOne = input("Do you want to create a new To Do (Y/N)?").upper()
 
 if questOne == "Y":
     clear()
+    createToDo(mainMenu)
     # Put some code here to create a new task (key = task name, value = desc)
 
 
@@ -47,8 +54,11 @@ elif questOne == "N":
     print("Monthy to Do List")
     print("Yearly To Do List")
     print()
-    questList = int(input("Which list do you want to access (Main, Completed, Daily, Weekly, Monthly, Yearly))? :"))
+    questList = input("Which list do you want to access (Main, Completed, Daily, Weekly, Monthly, Yearly))? :").capitalize()
 
+    while questList not in ("Main", "Completed", "Daily", "Weekly", "Monthly", "Yearly"):
+        print("You haven't chosen a menu choice, try again")
+        questList = input("Which list do you want to access (Main, Completed, Daily, Weekly, Monthly, Yearly))? :").capitalize()
 
     if questList == "Main":
         clear()
@@ -110,10 +120,7 @@ elif questOne == "N":
         print("This is where all of your Yearly To Dos are held")
         print(mainMenu["Yearly"])
 
-    else : 
-        print("You did not choose one of the menu options")
-        print()
-        print("You must choose one of the options : (Main, Completed, Daily, Weekly, Monthly, Yearly)")
+
 
 
 
