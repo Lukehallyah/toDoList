@@ -33,16 +33,21 @@ mainMenu = {
 
 print()
 print("Welcome to your To Do List")
+
+current_dict = mainMenu
+
 print()
 questOne = input("Do you want to create a new To Do (Y/N)?").upper()
 
 if questOne == "Y":
     clear()
     createToDo(mainMenu)
-    # Put some code here to create a new task (key = task name, value = desc)
 
 
 elif questOne == "N":
+    current_dict = mainMenu
+    # NOTE: tracking variable above
+
     clear()
     print("Accessing To Do Lists")
 
@@ -61,6 +66,8 @@ elif questOne == "N":
         questList = input("Which list do you want to access (Main, Completed, Daily, Weekly, Monthly, Yearly))? :").capitalize()
 
     if questList == "Main":
+        current_dict = mainMenu["Main"]
+
         clear()
         print()
         print("Main To Do List")
@@ -71,6 +78,8 @@ elif questOne == "N":
         print(mainMenu["Main"])
 
     elif questList == "Completed":
+        current_dict = mainMenu["Completed"]
+
         clear()
         print()
         print("Completed To Do List")
@@ -81,6 +90,8 @@ elif questOne == "N":
         print(mainMenu["Completed"])
 
     elif questList == "Daily":
+        current_dict = mainMenu["Daily"]
+
         clear()
         print()
         print("Daily To Do List")
@@ -91,6 +102,8 @@ elif questOne == "N":
         print(mainMenu["Daily"])
 
     elif questList == "Weekly":
+        current_dict = mainMenu["Weekly"]
+
         clear()
         print()
         print("Weekly To Do List")
@@ -101,6 +114,8 @@ elif questOne == "N":
         print(mainMenu["Weekly"])       
 
     elif questList == "Monthly":
+        current_dict = mainMenu["Monthly"]
+
         clear()
         print()
         print("Monthly To Do List")
@@ -111,6 +126,8 @@ elif questOne == "N":
         print(mainMenu["Monthly"])
 
     elif questList == "Yearly":
+        current_dict = mainMenu["Yearly"]
+
         clear()
         print()
         print("Yearly To Do List")
