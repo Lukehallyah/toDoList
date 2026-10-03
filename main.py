@@ -1,16 +1,11 @@
 from clear import clear
 from createTodo import createToDo
-
-# NOTe: omit the .py from "clear.py" and from "createToDo.py", python only needs the name file. 
-#     otherwise I'm asking it to look up "py.py" within a folder name "clear" and same thing for 
-#     a folder named "createToDo"
+from removeTask import removeTask
+from displayMenu import displayMenu
 
 import time
 
 import subprocess
-    # This is only to access the terminal to clear proceding menus
-    #     making it easier for me to read my menus
-
 
 
 # FOR THE MAIN TO DO LIST: 
@@ -31,111 +26,19 @@ mainMenu = {
     "Yearly" : {},
 }
 
-print()
-print("Welcome to your To Do List")
+# current_dict = mainMenu
 
-current_dict = mainMenu
+######
+# Some code here to bring up a menu, maybe I should put this in a function 
+#     and then just activate that function here.
 
-print()
-questOne = input("Do you want to create a new To Do (Y/N)?").upper()
-
-if questOne == "Y":
-    clear()
-    createToDo(mainMenu)
+displayMenu(mainMenu)
 
 
-elif questOne == "N":
-    current_dict = mainMenu
-    # NOTE: tracking variable above
 
-    clear()
-    print("Accessing To Do Lists")
 
-    print()
-    print("Main To Do List")
-    print("Completed To Do List")
-    print("Daily To Do List")
-    print("Weekly to Do List")
-    print("Monthy to Do List")
-    print("Yearly To Do List")
-    print()
-    questList = input("Which list do you want to access (Main, Completed, Daily, Weekly, Monthly, Yearly))? :").capitalize()
+######
 
-    while questList not in ("Main", "Completed", "Daily", "Weekly", "Monthly", "Yearly"):
-        print("You haven't chosen a menu choice, try again")
-        questList = input("Which list do you want to access (Main, Completed, Daily, Weekly, Monthly, Yearly))? :").capitalize()
-
-    if questList == "Main":
-        current_dict = mainMenu["Main"]
-
-        clear()
-        print()
-        print("Main To Do List")
-        print()
-        print("You are now on the Main To Do List")
-        time.sleep(0.25)
-        print("This is where all of your To Dos are held")
-        print(mainMenu["Main"])
-
-    elif questList == "Completed":
-        current_dict = mainMenu["Completed"]
-
-        clear()
-        print()
-        print("Completed To Do List")
-        print()
-        print("You are now on the Completed To Do List")
-        time.sleep(0.25)
-        print("This is where all of your completed To Dos are found")
-        print(mainMenu["Completed"])
-
-    elif questList == "Daily":
-        current_dict = mainMenu["Daily"]
-
-        clear()
-        print()
-        print("Daily To Do List")
-        print()
-        print("You are now on the Daily To Do List")
-        time.sleep(0.25)
-        print("This is where all of your Daily To Dos are held")
-        print(mainMenu["Daily"])
-
-    elif questList == "Weekly":
-        current_dict = mainMenu["Weekly"]
-
-        clear()
-        print()
-        print("Weekly To Do List")
-        print()
-        print("You are now on the Weekly To Do List")
-        time.sleep(0.25)
-        print("This is where all of your Weekly To Dos are held")
-        print(mainMenu["Weekly"])       
-
-    elif questList == "Monthly":
-        current_dict = mainMenu["Monthly"]
-
-        clear()
-        print()
-        print("Monthly To Do List")
-        print()
-        print("You are now on the Monthly To Do List")
-        time.sleep(0.25)
-        print("This is where all of your Monthly To Dos are held")
-        print(mainMenu["Monthly"])
-
-    elif questList == "Yearly":
-        current_dict = mainMenu["Yearly"]
-
-        clear()
-        print()
-        print("Yearly To Do List")
-        print()
-        print("You are now on the Yearly To Do List")
-        time.sleep(0.25)
-        print("This is where all of your Yearly To Dos are held")
-        print(mainMenu["Yearly"])
 
 
 
