@@ -1,7 +1,3 @@
-
-# NOTE: these are only here for remembrance sake, when I finish this code and this works, 
-#         I can delete the above commented out code.
-
 def createToDo(main_dict):
     # NOTE: must pass an argument to this instead of specific. Cannot import the main dict from 
     #     main.py because it will create an import/export loop too. So create an argument and when 
@@ -21,8 +17,10 @@ def createToDo(main_dict):
 
     toDoDesc = input("Describe your toDo and what you hope to accomplish : ")
     main_dict["Main"][toDoName]=toDoDesc
+
     listType = input("Which list do you want to put this in (Annual(Year), Monthly (Mon), Weekly (Week), Daily(Day))? :").capitalize()
     # NOTE: .capitalize() makes it so that the first letter of the word is capitalized, nice
+    
     while listType not in ("Year", "Mon", "Week", "Day"):
                 listType = input("Which list do you want to put this in (Annual(Year), Monthly (Mon), Weekly (Week), Daily(Day))? :")
     if listType == "Year":
